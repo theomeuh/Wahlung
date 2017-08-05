@@ -71,7 +71,7 @@ public class voteDCActivity extends AppCompatActivity implements View.OnClickLis
                 break;
                 default:
                     buttonGauche.setText("Vote");
-                    buttonDroite.setText("finie");
+                    buttonDroite.setText("fini");
             }
         }
     }

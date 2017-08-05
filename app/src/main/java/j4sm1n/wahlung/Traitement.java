@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Théo on 08/04/2017.
+ * Classe correspondant au moteur de l'app. Les calculs "complexes" sont effectués ici
  */
 
 public class Traitement {
@@ -30,5 +31,9 @@ public class Traitement {
         for (int i=1, m=n; i<=k; i++, m--)
             b=b*m/i;
         return b;
+    }
+
+    public static void resolutionCondorcet (ArrayList<> duel_gagne){
+
     }
 }
