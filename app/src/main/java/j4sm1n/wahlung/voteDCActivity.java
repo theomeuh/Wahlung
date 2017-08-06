@@ -1,5 +1,6 @@
 package j4sm1n.wahlung;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -32,7 +33,7 @@ public class voteDCActivity extends AppCompatActivity implements View.OnClickLis
         combatPossible = Traitement.combatPossible(listeChoix);
         nb_duel = combatPossible.length ;
 
-        duel_gagne = new int[nb_duel*2];
+        duel_gagne = new int[nb_duel];
 
         buttonGauche = (Button) findViewById(R.id.buttonGauche);
         buttonGauche.setOnClickListener(this);
@@ -56,7 +57,7 @@ public class voteDCActivity extends AppCompatActivity implements View.OnClickLis
                     buttonDroite.setText(combatPossible[compteur_duel][1]);
                 break;
                 case R.id.buttonDroite:
-                    duel_gagne[nb_duel + compteur_duel]+=1;
+                    duel_gagne[nb_duel]-=1;
                     buttonGauche.setText(combatPossible[compteur_duel][0]);
                     buttonDroite.setText(combatPossible[compteur_duel][1]);
                 break;
@@ -68,6 +69,12 @@ public class voteDCActivity extends AppCompatActivity implements View.OnClickLis
                     compteur_duel=0;
                     buttonGauche.setText(combatPossible[compteur_duel][0]);
                     buttonDroite.setText(combatPossible[compteur_duel][1]);
+                break;
+                case R.id.resultbutton:
+                    int nb_winner = Traitement.findingWinner(duel_gagne);
+                    Intent intent = new Intent(voteDCActivity.this, AffichageResult.class);
+                    intent.putExtra("winner",listeChoix.get(nb_winner));
+                    startActivity(intent);
                 break;
                 default:
                     buttonGauche.setText("Vote");

@@ -33,7 +33,41 @@ public class Traitement {
         return b;
     }
 
-    public static void reconstitutionMatrice{
+    public static int[][] reconstitutionMatrice (int[] duel_gagne){
+        int n = duel_gagne.length;
+        int rang = 1;
+        while (rang*(rang+1)/2 != n){
+            rang+=1;
+        }
+        int rangTriang = rang+1;
+        int[][] matrice = new int[rangTriang][rangTriang];
 
+        int compteur_duel = 0;
+        for (int ligne = 0;ligne<rangTriang;ligne++){
+            for (int colonne = 0;colonne<rangTriang;colonne++){
+                if (ligne < colonne){
+                    matrice[ligne][colonne]=duel_gagne[compteur_duel];
+                    matrice[colonne][ligne]=-duel_gagne[compteur_duel];
+                    compteur_duel+=1;
+                }
+            }
+        }
+        return(matrice);
+    }
+    public static int findingWinner(int[] duel_gagne){
+        int[][] matrice = reconstitutionMatrice(duel_gagne);
+        int winner = -1;
+        for (int ligne = 0; ligne<matrice.length;ligne++){
+            boolean allPositive = true;
+            for (int colonne=0;colonne<matrice.length;colonne++){
+                if (matrice[ligne][colonne]<0){
+                    allPositive=false;
+                }
+            }
+            if (allPositive){
+                winner = ligne;
+            }
+        }
+        return winner;
     }
 }

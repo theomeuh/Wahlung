@@ -25,7 +25,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".voteDCActivity"></activity>
+        <activity android:name=".voteDCActivity" />
+        <activity android:name=".AffichageResult"></activity>
     </application>
 
 </manifest>
