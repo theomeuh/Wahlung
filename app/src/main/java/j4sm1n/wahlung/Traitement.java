@@ -33,7 +33,7 @@ public class Traitement {
         return b;
     }
 
-    public static void resolutionCondorcet (ArrayList<> duel_gagne){
+    public static void reconstitutionMatrice{
 
     }
 }
